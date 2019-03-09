@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <a href="/">LOGIN WITH GITHUB</a>
+          <a href="http://localhost:3001/connect/github">LOGIN WITH GITHUB</a>
         </header>
       </div>
     );
