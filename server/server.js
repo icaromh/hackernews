@@ -4,7 +4,13 @@ const express = require('express')
 const session = require('express-session')
 const grant = require('grant-express')
 
-const authenticateRoutes = require('./routes/authenticate')
+/**
+ * ROUTES
+ */
+const authenticateRoute = require('./routes/authenticate')
+const storiesRoute = require('./routes/stories')
+const commentsRoute = require('./routes/comments')
+
 const config = require('./services/config')
 
 const configure = (app) => {
@@ -29,7 +35,9 @@ const configure = (app) => {
 }
 
 const bindRoutes = (app) => {
-  app.use('/authenticate', authenticateRoutes)
+  app.use('/authenticate', authenticateRoute)
+  app.use('/stories', storiesRoute)
+  app.use('/comments', commentsRoute)
 
   return app
 }
