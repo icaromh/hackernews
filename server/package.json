@@ -1,0 +1,10 @@
+{
+  "name": "hackernews-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "grant-express": "^4.5.0"
+  }
+}
