@@ -20,21 +20,18 @@ class CommentsView extends Component {
   }
 
   handleOnToggleComments(id) {
-    console.log(id)
     const { showComments } = this.state
     const isShowing = showComments.find((el) => el === id)
+    let filteredShows = [ ...showComments ]
 
-    if(!isShowing){
-      this.setState({
-        showComments: [...showComments, id]
-      })
-    }
-    else {
-      this.setState({
-        showComments: showComments.filter(el => el !== id)
-      })
-    }
+    if(!isShowing)
+      filteredShows = [...showComments, id]
+    else
+      filteredShows = showComments.filter(el => el !== id)
 
+    this.setState({
+      showComments: filteredShows
+    })
   }
 
   componentDidMount() {
@@ -71,7 +68,6 @@ class CommentsView extends Component {
   }
 
   render() {
-    console.log(this.state.showComments)
     return (
       <Fragment>
         {this.state.isLoading && <Loading />}

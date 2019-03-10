@@ -1,13 +1,16 @@
 'use strict'
 
 const redis = require('redis')
+const config = require('./config')
+
 const options = {
-  host: '',
-  password: '',
-  username: '',
-  port: '',
+  host: config.get('REDIS_HOST'),
+  port: config.get('REDIS_PORT', 6379),
+  password: config.get('REDIS_PASSWORD', false),
+  username: config.get('REDIS_USERNAME', false)
 }
-const client = redis.createClient()
+
+const client = redis.createClient(options)
 const prefix = `HACKERNEWS_`
 
 const set = (key, value, ttl = 60) => {

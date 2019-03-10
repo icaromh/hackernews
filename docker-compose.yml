@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.prod
+    restart: always
+    depends_on:
+      - redis
+    links:
+      - redis:redis
+    ports:
+      - 3001:3000
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    restart: always
+    ports:
+      - 3000:80
+    environment:
+      - NODE_ENV=production
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379

@@ -1,0 +1,5 @@
+FROM nginx
+
+MAINTAINER Ícaro Heimig
+
+COPY build /usr/share/nginx/html

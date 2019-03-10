@@ -1,7 +1,9 @@
 const validate = () => {
   const required = [
     'GITHUB_CLIENT_KEY',
-    'GITHUB_SECRET_KEY'
+    'GITHUB_SECRET_KEY',
+    'REDIS_HOST',
+    'REDIS_PORT'
   ]
 
   required.forEach(key => {
