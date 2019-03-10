@@ -5,6 +5,9 @@ import TimeAgo from 'timeago-react'
 import Badge from './Badge'
 import { OpenExternalIcon } from './Icons'
 
+import CommentsList from '../views/Comments'
+
+
 import {
   DARK_BLUE, FONT_COLOR,
 } from '../constants'
@@ -17,7 +20,7 @@ const Article = styled.article`
   display: flex
 `
 
-const Content = styled.div`
+const Metadata = styled.div`
   span {
     color: ${FONT_COLOR};
     font-size .7rem
@@ -36,7 +39,20 @@ const Title = styled.a`
   :hover {
     text-decoration: underline
   }
+`
 
+const CommentsLink = styled.button`
+  background: transparent
+  margin: 0
+  padding: 0
+  border: 0
+  color: ${FONT_COLOR}
+  font-weight: bold
+  cursor: pointer
+
+  :hover {
+    text-decoration: underline
+  }
 `
 
 const Divider = styled.span`
@@ -51,18 +67,20 @@ const Icon = styled.span`
   margin-left: 3px
 `
 
-const Container = ({data, n}) => {
+const ExternalIcon = (
+  <Icon>
+    <OpenExternalIcon height={10} width={10} fill={FONT_COLOR} />
+  </Icon>
+)
+
+const Container = ({ n, data, comments }) => {
   const datetime = new Date(data.time * 1000)
-  const ExternalIcon = (
-    <Icon>
-      <OpenExternalIcon height={10} width={10} fill={FONT_COLOR} />
-    </Icon>
-  )
+  const commentsLabel = data.descendants === 1 ? 'comment' : 'comments'
 
   return (
     <Article>
       <Badge value={n + 1} />
-      <Content>
+      <Metadata>
         <Title href={data.url} target="_blank" rel="noopener">
           {data.title}
           {data.url && ExternalIcon}
@@ -71,13 +89,16 @@ const Container = ({data, n}) => {
         <span>{data.score} point</span>
         <Divider />
 
-        <span><b>{data.descendants} comments</b></span>
+        <CommentsLink>{`${data.descendants} ${commentsLabel}`}</CommentsLink>
         <Divider />
 
         <span>
           <TimeAgo datetime={datetime} /> ago by <b>{data.by}</b>
         </span>
-      </Content>
+      </Metadata>
+
+      <CommentsList data={comments} />
+
     </Article>
   )
 }

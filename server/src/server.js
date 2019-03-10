@@ -16,7 +16,7 @@ const config = require('./services/config')
 
 const configure = (app) => {
   const corsOptions = {
-    origin: config.get('CLIENT_URL'),
+    // origin: config.get('CLIENT_URL'),
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
