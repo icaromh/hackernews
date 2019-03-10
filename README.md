@@ -1,5 +1,10 @@
 # HackerNews Challenge
+
+![Hacker news app preview](./docs/app-preview.png)
+
 Yet another Hacker News app.
+
+
 
 ### Requirements
 
