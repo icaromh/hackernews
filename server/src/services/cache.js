@@ -2,7 +2,7 @@
 
 const redis = require('redis')
 const options = {
-  host: ''
+  host: '',
   password: '',
   username: '',
   port: '',

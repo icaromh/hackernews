@@ -4,6 +4,3 @@
 - Server: source code of the server api
 
 
-# Server
-
-- Use redis to cache

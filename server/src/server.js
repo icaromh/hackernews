@@ -3,6 +3,7 @@
 const express = require('express')
 const session = require('express-session')
 const grant = require('grant-express')
+const cors = require('cors')
 
 /**
  * ROUTES
@@ -14,7 +15,13 @@ const commentsRoute = require('./routes/comments')
 const config = require('./services/config')
 
 const configure = (app) => {
+  const corsOptions = {
+    origin: config.get('CLIENT_URL'),
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
   app.use(session({ secret: 'grant' }))
+  app.use(cors(corsOptions))
   app.use(grant({
     'defaults': {
       'protocol': 'http',
