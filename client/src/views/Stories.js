@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Waypoint } from 'react-waypoint';
 
-import Story from '../components/Story'
 import BackgroundCanvas from '../components/BackgroundCanvas'
 import Loading from '../components/Loading'
+
+import StoryView from './Story'
 
 import ApiService from '../services/Api'
 
@@ -65,7 +66,7 @@ class StoriesView extends Component {
     return (
       <BackgroundCanvas>
         {items.map((el, i) => (
-          <Story key={el.id} data={el} n={i} />
+          <StoryView data={el} key={i} n={i} />
         ))}
 
         {this.renderWaypoint()}
