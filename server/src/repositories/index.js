@@ -37,7 +37,6 @@ class RepositoryBase {
       try {
         data = await this.api.fetch(endpoint)
       } catch (err) {
-        console.log(err)
         return err
       }
 

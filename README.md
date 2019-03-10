@@ -4,4 +4,4 @@ Yet another Hacker News app
 
 # Server
 
-[See docs](./server)
+[See docs](./server#hacker-news-server)
