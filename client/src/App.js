@@ -1,13 +1,41 @@
 import React, { Component } from 'react';
+import Layout from './views/Layout'
+import LoginView from './views/Login'
+import StoriesView from './views/Stories'
+
+import TokenManager from './services/TokenManager'
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+
+    this.state = {
+      items: [],
+      isLoggedIn: false,
+    }
+  }
+
+  componentWillMount() {
+    const token = TokenManager.get()
+    if(token) {
+      this.setState({ isLoggedIn: true })
+    }
+  }
+
+  handleLogin(){
+    this.setState({
+      isLoggedIn: true
+    })
+  }
+
   render() {
+    const { items, isLoggedIn } = this.state
     return (
-      <div className="App">
-        <header className="App-header">
-          <a href="http://localhost:3001/connect/github">LOGIN WITH GITHUB</a>
-        </header>
-      </div>
+      <Layout>
+        {!isLoggedIn && <LoginView onLogin={() => this.handleLogin()} /> }
+        {isLoggedIn && <StoriesView items={items} />}
+      </Layout>
     );
   }
 }
