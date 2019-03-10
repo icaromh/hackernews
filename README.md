@@ -23,7 +23,7 @@ docker-compose up --build
 ```
 
 Or you can simply use make:
-```
+```sh
 make build
 make run
 ```
@@ -33,5 +33,3 @@ After run the `run` or `docker-compose up` commands
 - The Client must be running on [http://localhost:3000](http://localhost:3000)
 - The API must be running on [http://localhost:3001](http://localhost:3001)
 
-
-#### Architethure
