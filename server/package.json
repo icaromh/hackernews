@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "jest",
+    "test": "jest src",
     "coverage": "jest --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

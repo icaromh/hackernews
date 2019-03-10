@@ -1,6 +1,6 @@
 FROM node:lts-slim
 
-ENV NODE_ENV development
+ENV NODE_ENV test
 ENV PORT 3001
 
 ADD . /app
