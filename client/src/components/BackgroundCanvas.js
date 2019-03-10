@@ -9,6 +9,7 @@ import {
 const Background = styled.main`
   padding: 5px;
   background-color: ${LIGHT_BLUE}
+  min-height: 100vh
 `
 
 const Container = ({children}) => (

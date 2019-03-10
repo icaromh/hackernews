@@ -11,7 +11,6 @@ class App extends Component {
     super(props)
 
     this.state = {
-      items: [],
       isLoggedIn: false,
     }
   }
@@ -30,11 +29,11 @@ class App extends Component {
   }
 
   render() {
-    const { items, isLoggedIn } = this.state
+    const { isLoggedIn } = this.state
     return (
       <Layout>
         {!isLoggedIn && <LoginView onLogin={() => this.handleLogin()} /> }
-        {isLoggedIn && <StoriesView items={items} />}
+        {isLoggedIn && <StoriesView />}
       </Layout>
     );
   }

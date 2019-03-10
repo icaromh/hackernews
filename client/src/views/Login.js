@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Link from '../components/Link'
-import GithubIcon from '../components/Icons'
+import { GithubIcon } from '../components/Icons'
 import WelcomeBox from '../components/WelcomeBox'
 
 import {
